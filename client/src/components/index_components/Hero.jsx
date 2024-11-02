@@ -18,9 +18,9 @@ const Hero = () => {
                             <div className="hero_icon mb-4 d-flex justify-content-center align-items-center"> {/* Added align-items-center */}
                                 <img src={docsIcon} alt="document icon" />
                             </div>
-                            <h1 className="mb-3">Improve Productivity with AI Document Generation</h1>
-                            <p className="mb-4">Free AI Document Generator for Creating Documents in Seconds</p>
-                            <p>Generate AI-written documents in just a few clicks, with pre-built templates for your ease.</p>
+                            <h1 className="mb-3 text-light">Improve Productivity with AI Document Generation</h1>
+                            <p className="mb-4 text-light">Free AI Document Generator for Creating Documents in Seconds</p>
+                            <p className="text-light">Generate AI-written documents in just a few clicks, with pre-built templates for your ease.</p>
                             <button className="btn btn-primary px-4 py-2">
                                 <i className="bi bi-magic"></i> Generate
                             </button>
@@ -33,7 +33,7 @@ const Hero = () => {
                 /* HeroSection.css */
                 .hero-section {
                     padding: 90px 0;
-                  background: linear-gradient(45deg, #333, #111);
+                    background: linear-gradient(to bottom, #1c1c1c, #0a0a0a);
                     display: flex;
                     flex-direction: column;
                     justify-content: center;

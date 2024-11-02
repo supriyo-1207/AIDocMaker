@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2024 SGPT Web Solutions | All Rights Reserved</p>
+          <p>&copy; 2024 Aidocmaker | All Rights Reserved</p>
         </div>
         <div className="footer-visualization"></div>
       </footer>
@@ -50,7 +50,7 @@ const Footer = () => {
         {`
           .footer {
             position: relative;
-            background: linear-gradient(45deg, #333, #111);
+             background: linear-gradient(to bottom, #1c1c1c, #0a0a0a);
             color: #fff;
             padding: 50px 0;
             overflow: hidden;
@@ -128,16 +128,16 @@ const Footer = () => {
             color: #ccc;
           }
 
-          .footer-visualization {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 200%;
-            height: 250px;
-            background: radial-gradient(circle, rgba(255, 111, 97, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
-            animation: rotateBackground 15s infinite linear;
-            transform: translateX(-50%);
-          }
+          // .footer-visualization {
+          //   position: absolute;
+          //   bottom: 0;
+          //   left: 50%;
+          //   width: 200%;
+          //   height: 250px;
+          //   background: radial-gradient(circle, rgba(255, 111, 97, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+          //   animation: rotateBackground 15s infinite linear;
+          //   transform: translateX(-50%);
+          // }
 
           .social-links {
             display: flex;

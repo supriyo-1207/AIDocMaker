@@ -27,7 +27,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container">
                     {/* Left side: Logo */}
-                    <Link className="navbar-brand" to="/"> 
+                    <Link className="navbar-brand text-light" to="/"> 
                         Aidocmaker
                     </Link>
 
@@ -65,14 +65,14 @@ const Navbar = () => {
             </nav>
             <style jsx="true">{`
                 .navbar {
-                    background: linear-gradient(45deg, #333, #111);
+                    background: linear-gradient(to bottom, #0a0a0a, #1c1c1c);
                     color: #fff;
                     border-bottom: 1px solid rgba(255, 111, 97, 0.6);
                     transition: background 0.4s ease-in-out, box-shadow 0.4s ease;
                 }
 
                 .navbar:hover {
-                    background: linear-gradient(45deg, #444, #222);
+                    
                     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
                 }
 
