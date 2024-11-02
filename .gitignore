@@ -1,0 +1,19 @@
+# Node modules (React dependencies)
+node_modules/
+
+
+# Python virtual environment (inside backend folder)
+.venv/
+
+# Python cache files
+__pycache__/
+
+
+
+
+home.html
+image.png
+index2.html
+slide.png
+display.html
+docs.png
