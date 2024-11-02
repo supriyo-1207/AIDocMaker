@@ -9,7 +9,7 @@ const Feature = () => {
         <>
             <section className="feature-section">
                 <div className="container">
-                    <h2 className="text-center mb-5 text-light">Features of the AI Documents Generator</h2>
+                    <h2 className="text-center mb-5 text-light"> Features of the AI Documents Generator</h2>
                     <div className="row mb-5">
                         <div className="col-md-6 d-flex align-items-center">
                             <div className="feature-text">
