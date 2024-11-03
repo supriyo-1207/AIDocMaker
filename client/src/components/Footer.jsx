@@ -6,22 +6,21 @@ const Footer = () => {
           <div className="footer-section about">
             <h2 className="footer-title">About Us</h2>
             <p>
-              We are a creative web development company dedicated to building high-quality, visually stunning websites that bring your vision to life.
+            Aidocmaker empowers users with AI-driven tools to create professional, well-structured documents quickly and efficiently.
             </p>
           </div>
           <div className="footer-section links">
             <h2 className="footer-title">Quick Links</h2>
             <ul>
               <li><a href="#home">Home</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#services">Docs</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           <div className="footer-section contact">
             <h2 className="footer-title">Contact Us</h2>
-            <p>Email: info@example.com</p>
-            <p>Phone: +123-456-7890</p>
+            <p>Email:supriyo.codes@gmail.com</p>
+            <p>Phone: +816-752-4491</p>
           </div>
           <div className="footer-section social">
             <h2 className="footer-title">Follow Us</h2>
@@ -29,13 +28,13 @@ const Footer = () => {
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon twitter">
+              <a href="https://x.com/supriyo_1207" target="_blank" rel="noopener noreferrer" className="social-icon twitter">
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
+              <a href="https://www.instagram.com/supriyomaity_1207/" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
+              <a href="https://www.linkedin.com/in/supriyomaity/" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
                 <i className="fab fa-linkedin-in"></i>
               </a>
             </div>

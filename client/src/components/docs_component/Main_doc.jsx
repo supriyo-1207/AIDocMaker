@@ -92,10 +92,11 @@ function Main_doc() {
             <style jsx="true">{`
                 .main {
                     margin-top: 30px;
+                    
                 }
-.pencil_icon{
-color:red;
-}
+                 .pencil_icon{
+                color:red;
+                }
                 .card {
                     padding: 25px;
                     border-radius: 12px;
