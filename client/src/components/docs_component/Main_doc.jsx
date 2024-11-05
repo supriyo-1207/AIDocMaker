@@ -1,23 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from '../common_components/Select';
 import Button from '../common_components/Button';
 import TextArea from '../common_components/Textarea';
 import Header_docs from './Header_docs';
-import 'font-awesome/css/font-awesome.min.css'; // Importing Font Awesome for icons
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Main_doc() {
     const [model, setModel] = useState('gpt-4-mini');
     const [background, setBackground] = useState('');
     const [instructions, setInstructions] = useState('');
-    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    // const generateDocument = async () => {
+    //     try {
+            
+    //         const response = await axios.get('http://localhost:5000/getdata' )
+    //         console.log(response.data);
+            
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
+    // useEffect(() => {
+    //     generateDocument();
+    // })
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
-        setTimeout(() => {
-            setLoading(false);
-            // Handle response here
-        }, 2000); // Simulate a 2-second API call
+        console.log(model, instructions);
+        try {
+            const response= await axios.post('http://localhost:5000/getdata', {
+                model: model,
+                instructions: instructions
+            })
+            console.log(response);
+            if(response.status === 200){
+                navigate('/view/');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
     };
 
     const handleChange = (event) => {
@@ -80,9 +103,9 @@ function Main_doc() {
                                 id="submit-btn"
                                 className="btn-primary btn-block"
                                 ariaLabel="Generate Document"
-                                disabled={loading}
+                               
                             >
-                                {loading ? 'Generating Document...' : 'Generate Document'}
+                                Generate Document
                             </Button>
                         </div>
                     </form>

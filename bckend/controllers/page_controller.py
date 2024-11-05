@@ -1,9 +1,10 @@
 from flask import (
-    Flask,Blueprint
+    Flask,Blueprint, jsonify
 )
 
 page = Blueprint('page', __name__)
 
-@page.route('/')
+@page.route('/getdata', methods=['POST'])
 def index():
-    return ("hello ")
+    data = {"message": "Hello from Flask!"}
+    return jsonify(data)
