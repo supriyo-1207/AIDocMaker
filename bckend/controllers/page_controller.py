@@ -1,21 +1,18 @@
-from flask import Flask, Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
-from dotenv import load_dotenv  # Import load_dotenv
+from dotenv import load_dotenv
+import markdown2
 
-# Load environment variables from .env file
+# Load environment variables
 load_dotenv()
 
-# Initialize Flask app and Blueprint
-app = Flask(__name__)
+# Create a Blueprint instance
 page = Blueprint('page', __name__)
 
-# Ensure your Google API key is set correctly in your environment variables
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
-
 # Initialize the LLM model
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 llm = ChatGoogleGenerativeAI(model="gemini-pro")
 
 # Define the report template
@@ -34,24 +31,24 @@ prompt = PromptTemplate(
     template=report_template,
 )
 
-# Create an LLM Chain
-analysis_chain = LLMChain(prompt=prompt, llm=llm)
+# Use RunnableSequence syntax by combining prompt and llm
+analysis_chain = prompt | llm
 
-# Register the Blueprint
-app.register_blueprint(page)
-
+# Define the route
 @page.route('/getdata', methods=['POST'])
 def gemini():
     data = request.get_json()
+    print(data)
     
     # Check if the topic is provided
-    topic = data.get('instructions')
+    topic = data.get('instructions', 'hello')  # default topic for testing
     if not topic:
-        return jsonify({"error": "Topic is required"}), 400  # Return 400 Bad Request if topic is missing
+        return jsonify({"error": "Topic is required"}), 400
     
-    # Generate the output
-    output = analysis_chain.run(topic=topic)
-    
-    # Return the generated report
-    return jsonify({"report": output}), 200  # Return 200 OK with the report
+    # Generate the output by invoking the chain
+    output = analysis_chain.invoke({"topic": topic})
+    result = markdown2.markdown(str(output))
 
+    print(result)
+    # Return the generated report
+    return jsonify({"report": result}), 200

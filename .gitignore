@@ -9,7 +9,8 @@ node_modules/
 __pycache__/
 
 
-
+# variables.env
+.env
 
 home.html
 image.png
