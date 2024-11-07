@@ -33,6 +33,7 @@ prompt = PromptTemplate(
 
 # Use RunnableSequence syntax by combining prompt and llm
 analysis_chain = prompt | llm
+result = {}
 
 # Define the route
 @page.route('/getdata', methods=['POST'])
@@ -40,15 +41,33 @@ def gemini():
     data = request.get_json()
     print(data)
     
+    # Get the topic and background from the request
+    topic = data.get('instructions')
+    background = data.get('background')
+
     # Check if the topic is provided
-    topic = data.get('instructions', 'hello')  # default topic for testing
     if not topic:
         return jsonify({"error": "Topic is required"}), 400
     
+    # Append background information to the topic if provided
+    if background:
+        topic += f"\n\nBackground: {background}"
+    
     # Generate the output by invoking the chain
     output = analysis_chain.invoke({"topic": topic})
-    result = markdown2.markdown(str(output))
+    global result
 
+    # Extract the generated text from the AIMessage object
+    generated_text = output.content  # Accessing the content attribute
+
+    # Convert the generated text to markdown
+    result = markdown2.markdown(generated_text)
     print(result)
+    
     # Return the generated report
+    return jsonify({"report": result}), 200
+
+@page.route('/getdata', methods=['GET'])
+def getdata():
+    print(result)
     return jsonify({"report": result}), 200

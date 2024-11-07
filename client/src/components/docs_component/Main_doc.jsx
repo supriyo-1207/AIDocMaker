@@ -27,21 +27,30 @@ function Main_doc() {
     // })
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(model, instructions);
+        console.log(model, instructions, background);
         try {
-            const response= await axios.post('http://localhost:5000/getdata', {
-                model: model,
-                instructions: instructions
-            })
-            console.log(response);
-            if(response.status === 200){
+            const response = await axios.post(
+                'http://localhost:5000/getdata',
+                {
+                    model: model,
+                    instructions: instructions,
+                    background: background
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json' // Ensure content type is JSON
+                    }
+                }
+            );
+            console.log("response", response);
+            if (response.status === 200) {
                 navigate('/view/');
             }
         } catch (error) {
             console.error(error);
         }
-
     };
+    
 
     const handleChange = (event) => {
         setModel(event.target.value);
