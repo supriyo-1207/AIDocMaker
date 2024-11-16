@@ -1,7 +1,7 @@
 import React from 'react';
 import docsIcon from '../../assets/docs.png';
 import Button from '../common_components/Button';
-import htmlDocx from './path/to/your/patched/html-docx.js';
+
 
 
 
