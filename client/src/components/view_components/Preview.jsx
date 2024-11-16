@@ -34,7 +34,9 @@ function Preview({ content }) {
           .preview-container {
             width: 100%;
             padding: 0;
-            height: 50vh;
+            height: 100vh;
+      
+            
           }
 
           .preview-container {

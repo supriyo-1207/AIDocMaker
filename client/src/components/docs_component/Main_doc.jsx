@@ -111,10 +111,10 @@ function Main_doc() {
                                 type="submit"
                                 id="submit-btn"
                                 className="btn-primary btn-block"
-                                ariaLabel="Generate Document"
-                               
+                                ariaLabel="Generate Document" 
+                                children={"Generate Document"}
                             >
-                                Generate Document
+                               
                             </Button>
                         </div>
                     </form>

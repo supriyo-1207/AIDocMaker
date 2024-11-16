@@ -18,7 +18,7 @@ function Edit_view({ value, setValue }) {
       <style jsx="true">
         {`
         .editor-container {
-          width: 50%;
+          width: 51%;
           padding-right: 15px;
           display: flex;
           flex-direction: column;
@@ -31,14 +31,15 @@ function Edit_view({ value, setValue }) {
           border-radius: 8px;
           overflow: hidden;
           min-height: 500px;
-          padding: 15px;
+          padding: 10px;
         }
 
         @media (max-width: 768px) {
           .editor-container {
             width: 100%;
             padding: 0;
-            height: 50vh;
+            height: 100vh;
+           display: none;
           }
         }
         `}

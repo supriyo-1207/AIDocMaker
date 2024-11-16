@@ -30,7 +30,7 @@ function Main_view() {
   return (
     <>
       <div className="container views">
-        <Header_docs title={'Document Editor'} showExportButton={true} />
+        <Header_docs title={'Document Editor'} showExportButton={true} value={value} />
       </div>
 
       <div className="container view">
@@ -48,7 +48,7 @@ function Main_view() {
           .view {
             display: flex;
             height: calc(100vh - 80px);
-            padding: 20px;
+            padding-top: 20px;
             box-sizing: border-box;
             
           }
@@ -57,6 +57,7 @@ function Main_view() {
               flex-direction: column;
               margin-top: 20px;
             }
+              
           }
         `}
       </style>

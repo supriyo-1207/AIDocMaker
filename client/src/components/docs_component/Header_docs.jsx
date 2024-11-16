@@ -1,7 +1,30 @@
 import React from 'react';
 import docsIcon from '../../assets/docs.png';
+import Button from '../common_components/Button';
+import htmlDocx from './path/to/your/patched/html-docx.js';
 
-function Header_docs({ title, showExportButton }) {
+
+
+function Header_docs({ title, showExportButton,value }) {
+
+    const handelExport = () => {
+        try {
+           
+            const htmlContent = `<h1>Generated Report</h1><p>${value}</p>`;
+
+            // Convert HTML to DOCX
+            const converted = htmlDocx.asBlob(htmlContent);
+          
+            // Create a download link for the .docx file
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(converted);
+            link.download = 'document.docx';
+            link.click();
+        } catch (error) {
+            console.error('Error during DOCX conversion:', error);
+        }
+      
+    }
     return (
         <div>
             <div className="header">
@@ -13,7 +36,16 @@ function Header_docs({ title, showExportButton }) {
                 <div className="nav d-flex justify-space-between">
                     <p>Create a report, salesheet, proposal, and more in seconds using AI.</p>
                     {showExportButton && (
-                        <button id="export-doc">Export</button>
+                        // <button id="export-doc">Export</button>
+                        <Button
+                            type={"button"}
+                            onClick={handelExport}
+                            disabled={false}
+                            ariaLabel={"Export"}
+                            children={"Export"}
+                            id={"export-doc"}
+                            className={"btn"}
+                        />
                     )}
                 </div>
             </div>

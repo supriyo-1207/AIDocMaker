@@ -9,7 +9,7 @@ const Feature = () => {
         <>
             <section className="feature-section">
                 <div className="container">
-                    <h2 className="text-center mb-5 text-light"> Features of the AI Documents Generator</h2>
+                    <h2 className="text-center  text-light heading"> Features of the AI Documents Generator</h2>
                     <div className="row mb-5">
                         <div className="col-md-6 d-flex align-items-center">
                             <div className="feature-text">
@@ -58,6 +58,30 @@ const Feature = () => {
             <style jsx='true'>
                 {`
                     /* FeatureSection.css */
+                    .text-center {
+    text-align: center; /* Centers the content inside the parent container */
+    }
+
+    .heading {
+    margin-bottom: 160px;
+    position: relative;
+    display: block; /* Allows full-width centering */
+    text-align: center; /* Centers text inside the heading */
+    }
+
+        .heading::after {
+    content: '';
+    width: 250px; /* Matches the width of the text */
+    height: 3px;
+    background: #ff6f61; /* Accent color */
+    position: absolute;
+    bottom: -10px; /* Adds space between text and underline */
+    left: 50%; /* Centers the underline */
+    transform: translateX(-50%); /* Adjusts the position to perfectly center */
+    }
+
+
+
                     .feature-section {
                         padding: 60px 20px;
                         background: linear-gradient(to bottom, #0a0a0a, #1c1c1c);
@@ -90,7 +114,7 @@ const Feature = () => {
                     }
 
                     .feature_image {
-                        border: 8px solid #e0e0e0; /* Softer grey for the border */
+                      border: 27px solid #8f8f8f; /* Softer grey for the border */
                         border-radius: 15px; /* More rounded corners */
                         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
                         transition: transform 0.3s; /* Smooth scale transition */

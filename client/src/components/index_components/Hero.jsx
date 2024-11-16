@@ -1,8 +1,10 @@
 // HeroSection.js
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import docsIcon from '../../assets/docs.png';
-
+import Button from '../common_components/Button';
 const Hero = () => {
+    const navigate = useNavigate();
     // Effect for animating the hero section on load
     useEffect(() => {
         const heroSection = document.querySelector('.hero-section');
@@ -21,9 +23,18 @@ const Hero = () => {
                             <h1 className="mb-3 text-light">Improve Productivity with AI Document Generation</h1>
                             <p className="mb-4 text-light">Free AI Document Generator for Creating Documents in Seconds</p>
                             <p className="text-light">Generate AI-written documents in just a few clicks, with pre-built templates for your ease.</p>
-                            <button className="btn btn-primary px-4 py-2">
-                                <i className="bi bi-magic"></i> Generate
-                            </button>
+                            {/* <button className="btn btn-primary px-4 py-2">
+                                 Generate
+                            </button> */}
+                            <Button
+                                type="button"
+                                onClick={() => navigate('/document')}
+                                disabled={false}
+                                ariaLabel="Generate"
+                                children="Generate"
+                                className="btn btn-primary px-4 py-2"
+                            ></Button>
+                           
                         </div>
                     </div>
                 </div>
@@ -32,6 +43,7 @@ const Hero = () => {
                 {`
                 /* HeroSection.css */
                 .hero-section {
+                   max-height: 100%;
                     padding: 90px 0;
                     background: linear-gradient(to bottom, #1c1c1c, #0a0a0a);
                     display: flex;
