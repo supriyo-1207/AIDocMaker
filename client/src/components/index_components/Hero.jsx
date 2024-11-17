@@ -5,8 +5,10 @@ import docsIcon from '../../assets/docs.png';
 import pdfIcon from '../../assets/pdf.webp';
 import slideIcon from '../../assets/slide.png';
 import Button from '../common_components/Button';
+import { toast } from 'react-toastify';
 const Hero = () => {
     const navigate = useNavigate();
+    const notify = () => toast.info("Coming soon!!");
     // Effect for animating the hero section on load
     useEffect(() => {
         const heroSection = document.querySelector('.hero-section');
@@ -20,9 +22,10 @@ const Hero = () => {
                     <div className="row justify-content-center">
                         <div className="col-md-8">
                             <div className="hero_icon mb-4 d-flex justify-content-center align-items-center"> {/* Added align-items-center */}
-                                <img src={docsIcon} alt="document icon" className='m-2 cursor-pointer' />
-                                <img src={pdfIcon} alt="pdf icon" className='m-2 cursor-pointer' />
-                                <img src={slideIcon} alt="spreadsheet icon" className='m-2 cursor-pointer' />
+                                <img src={docsIcon} alt="document icon" className='m-2 ' onClick={() => navigate('/document')}/>
+                                <img src={pdfIcon} alt="pdf icon" className='m-2 ' onClick={notify}/>
+                             
+                                <img src={slideIcon} alt="spreadsheet icon" className='m-2 ' onClick={notify}/>
                             </div>
                             <h1 className="mb-3 text-light">Boost Your Efficiency with AI-Powered Document Generation</h1>
                             <p className="mb-4 text-light">Generate DOCX, PDF, and Excel Files in Seconds – Powered by AI</p>
@@ -32,9 +35,7 @@ const Hero = () => {
                                 Save time and enhance productivity with AI that adapts to your requirements – perfect for business, education, and personal use.
                             </p>
 
-                            {/* <button className="btn btn-primary px-4 py-2">
-                                 Generate
-                            </button> */}
+                        
                             <Button
                                 type="button"
                                 onClick={() => navigate('/document')}
@@ -72,7 +73,7 @@ const Hero = () => {
                 .hero_icon img {
                     width: 80px; /* Increased size for better visibility */
                     border-radius: 10%;
-                   curser: pointer;
+                     cursor: pointer;
                 }
 
                 h1 {
