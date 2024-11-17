@@ -50,6 +50,7 @@ function Main_view() {
             height: calc(100vh - 80px);
             padding-top: 20px;
             box-sizing: border-box;
+            margin: 20px auto;
             
           }
           @media (max-width: 768px) {

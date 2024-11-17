@@ -43,7 +43,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <p>&copy; 2024 Aidocmaker | All Rights Reserved</p>
         </div>
-        <div className="footer-visualization"></div>
+        
       </footer>
       <style jsx="true">
         {`

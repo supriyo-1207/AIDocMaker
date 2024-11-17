@@ -2,6 +2,8 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import docsIcon from '../../assets/docs.png';
+import pdfIcon from '../../assets/pdf.webp';
+import slideIcon from '../../assets/slide.png';
 import Button from '../common_components/Button';
 const Hero = () => {
     const navigate = useNavigate();
@@ -18,11 +20,18 @@ const Hero = () => {
                     <div className="row justify-content-center">
                         <div className="col-md-8">
                             <div className="hero_icon mb-4 d-flex justify-content-center align-items-center"> {/* Added align-items-center */}
-                                <img src={docsIcon} alt="document icon" />
+                                <img src={docsIcon} alt="document icon" className='m-2 cursor-pointer' />
+                                <img src={pdfIcon} alt="pdf icon" className='m-2 cursor-pointer' />
+                                <img src={slideIcon} alt="spreadsheet icon" className='m-2 cursor-pointer' />
                             </div>
-                            <h1 className="mb-3 text-light">Improve Productivity with AI Document Generation</h1>
-                            <p className="mb-4 text-light">Free AI Document Generator for Creating Documents in Seconds</p>
-                            <p className="text-light">Generate AI-written documents in just a few clicks, with pre-built templates for your ease.</p>
+                            <h1 className="mb-3 text-light">Boost Your Efficiency with AI-Powered Document Generation</h1>
+                            <p className="mb-4 text-light">Generate DOCX, PDF, and Excel Files in Seconds – Powered by AI</p>
+                            <p className="text-light">
+                                Effortlessly create professional documents, spreadsheets, and reports with our AI-based tool.
+                                Choose from customizable templates or generate content from scratch, all tailored to your needs.
+                                Save time and enhance productivity with AI that adapts to your requirements – perfect for business, education, and personal use.
+                            </p>
+
                             {/* <button className="btn btn-primary px-4 py-2">
                                  Generate
                             </button> */}
@@ -34,7 +43,7 @@ const Hero = () => {
                                 children="Generate"
                                 className="btn btn-primary px-4 py-2"
                             ></Button>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -61,8 +70,9 @@ const Hero = () => {
                 }
 
                 .hero_icon img {
-                    width: 100px; /* Increased size for better visibility */
-                    animation: bounce 1s infinite; /* Added bounce effect */
+                    width: 80px; /* Increased size for better visibility */
+                    border-radius: 10%;
+                   curser: pointer;
                 }
 
                 h1 {

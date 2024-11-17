@@ -5,26 +5,30 @@ import Button from '../common_components/Button';
 
 
 
-function Header_docs({ title, showExportButton,value }) {
+function Header_docs({ title, showExportButton,value }) { 
+      const handelExport = async () => {
+            try {
+              // Send GET request to Flask to fetch the docx file
+              const response = await fetch('http://localhost:5000/generate-docx', {
+                method: 'GET',
+              });
+        
+              // Check if the request was successful
+              if (response.ok) {
+                const blob = await response.blob(); // Convert the response to a Blob
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob); // Create a URL for the Blob
+                link.download = 'generated_doc.docx'; // Set the filename for the downloaded file
+                link.click(); // Trigger the download
+              } else {
+                console.error('Failed to download file');
+              }
+            } catch (error) {
+              console.error('Error:', error);
+            }
+    };
 
-    const handelExport = () => {
-        try {
-           
-            const htmlContent = `<h1>Generated Report</h1><p>${value}</p>`;
-
-            // Convert HTML to DOCX
-            const converted = htmlDocx.asBlob(htmlContent);
-          
-            // Create a download link for the .docx file
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(converted);
-            link.download = 'document.docx';
-            link.click();
-        } catch (error) {
-            console.error('Error during DOCX conversion:', error);
-        }
-      
-    }
+    
     return (
         <div>
             <div className="header">
@@ -41,8 +45,8 @@ function Header_docs({ title, showExportButton,value }) {
                             type={"button"}
                             onClick={handelExport}
                             disabled={false}
-                            ariaLabel={"Export"}
-                            children={"Export"}
+                            ariaLabel={"Download"}
+                            children={"Download"}
                             id={"export-doc"}
                             className={"btn"}
                         />

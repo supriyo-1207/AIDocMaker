@@ -4,3 +4,5 @@ python-dotenv
 langchain
 langchain-google-genai
 markdown2
+python-docx
+beautifulsoup4

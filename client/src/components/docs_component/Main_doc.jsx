@@ -123,7 +123,7 @@ function Main_doc() {
 
             <style jsx="true">{`
                 .main {
-                    margin-top: 30px;
+                    margin: 30px auto;
                     
                 }
                  .pencil_icon{
