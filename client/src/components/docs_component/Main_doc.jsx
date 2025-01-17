@@ -12,19 +12,6 @@ function Main_doc() {
     const [instructions, setInstructions] = useState('');
     const navigate = useNavigate();
 
-    // const generateDocument = async () => {
-    //     try {
-            
-    //         const response = await axios.get('http://localhost:5000/getdata' )
-    //         console.log(response.data);
-            
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
-    // useEffect(() => {
-    //     generateDocument();
-    // })
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(model, instructions, background);
@@ -113,6 +100,7 @@ function Main_doc() {
                                 className="btn-primary btn-block"
                                 ariaLabel="Generate Document" 
                                 children={"Generate Document"}
+                                
                             >
                                
                             </Button>
