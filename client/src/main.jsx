@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
     <ToastContainer
-      position="bottom-right"
+      position="top-right"
       autoClose={5000}
       hideProgressBar={false}
       newestOnTop={false}
@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')).render(
       pauseOnFocusLoss
       draggable
       pauseOnHover
-      theme="dark"
+      theme="colored"
 
     />
   </StrictMode>

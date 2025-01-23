@@ -2,7 +2,7 @@ import React from 'react';
 
 function Select({ options, value, onChange, label, id, aria_label, className }) {
     return (
-        <>
+        <> 
             {label && <label htmlFor={id}>{label}</label>} {/* Ensure the label is associated with the select */}
             <select
                 value={value}

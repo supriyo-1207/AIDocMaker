@@ -1,20 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import Select from '../common_components/Select';
 import Button from '../common_components/Button';
 import TextArea from '../common_components/Textarea';
 import Header_docs from './Header_docs';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LoadingBar from "react-top-loading-bar";
+
+import {  toast } from 'react-toastify';
 
 function Main_doc() {
     const [model, setModel] = useState('gpt-4-mini');
     const [background, setBackground] = useState('');
     const [instructions, setInstructions] = useState('');
     const navigate = useNavigate();
+    const loadingBarRef = useRef(null);
 
+   
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!instructions) {
+            toast.warning('Please give the instructions');
+            return;
+        }
+        
         console.log(model, instructions, background);
+        loadingBarRef.current.continuousStart(10);
         try {
             const response = await axios.post(
                 'http://localhost:5000/getdata',
@@ -30,27 +41,48 @@ function Main_doc() {
                 }
             );
             console.log("response", response);
+            loadingBarRef.current.complete();
             if (response.status === 200) {
+              
                 navigate('/view/');
             }
         } catch (error) {
             console.error(error);
         }
     };
-    
+
 
     const handleChange = (event) => {
-        setModel(event.target.value);
+        console.log(event.target.value);
+        if (event.target.value === 'llama') {
+            toast.info('Llama is not supported yet');
+        }
+        else if (event.target.value === 'gpt-4-mini') {
+            toast.info('GPT-4-Mini is not supported yet');
+        }
+        else {
+            setModel(event.target.value);
+        }
+
     };
 
     const options = [
-        { value: 'gpt-4-mini', label: 'gpt-4-mini' },
-        { value: 'gpt-4', label: 'gpt-4' },
         { value: 'gemini-pro', label: 'gemini-pro' },
+        { value: 'llama', label: 'llama' },
+        { value: 'gpt-4-mini', label: 'gpt-4-mini' },
+       
+
     ];
 
     return (
         <>
+            
+            <LoadingBar 
+                color="#f11946" 
+                ref={loadingBarRef} 
+                shadow={true} 
+                height={3}  // Thin loading bar
+            />
             <div className="container main">
                 <Header_docs title={'Generate Document'} showExportButton={false} />
 
@@ -89,7 +121,7 @@ function Main_doc() {
                             onChange={(e) => setInstructions(e.target.value)}
                             placeholder="Enter your instructions..."
                             id="instructions"
-                            required
+                            
                             aria_label="Instructions"
                         />
 
@@ -98,11 +130,12 @@ function Main_doc() {
                                 type="submit"
                                 id="submit-btn"
                                 className="btn-primary btn-block"
-                                ariaLabel="Generate Document" 
+                                ariaLabel="Generate Document"
                                 children={"Generate Document"}
-                                
-                            >
                                
+
+                            >
+
                             </Button>
                         </div>
                     </form>
