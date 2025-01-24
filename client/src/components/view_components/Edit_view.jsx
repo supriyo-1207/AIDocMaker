@@ -3,15 +3,31 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 function Edit_view({ value, setValue }) {
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, false] }],
+      [{ 'font': [] }],
+      ['bold', 'italic', 'underline'],
+      ['image', 'code-block'],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }],
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'direction': 'rtl' }],
+      [{ 'align': [] }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1' }, { 'indent': '+1' }],
+    ],
+  };
+
   return (
     <>
       <div className="editor-container">
-        <ReactQuill 
-          theme="snow" 
-          value={value} 
-          onChange={setValue} 
-          id="editor" 
+        <ReactQuill
+          theme="snow"
+          value={value}
+          onChange={setValue}
+          id="editor"
           className="quill-editor"
+          modules={modules}
         />
       </div>
 
@@ -33,7 +49,9 @@ function Edit_view({ value, setValue }) {
           min-height: 500px;
           padding: 10px;
         }
-
+          .ql-container{
+          padding-bottom:35px
+          }
         @media (max-width: 768px) {
           .editor-container {
             width: 100%;

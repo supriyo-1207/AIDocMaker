@@ -47,7 +47,8 @@ function Main_view() {
           }
           .view {
             display: flex;
-            height: calc(100vh - 80px);
+            // height: calc(100vh - 80px);
+            
             padding-top: 20px;
             box-sizing: border-box;
             margin: 20px auto;
