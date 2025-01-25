@@ -74,6 +74,14 @@ def getdata():
     print(result)
     return jsonify({"report": result}), 200
 
+@page.route('/saveContent', methods=['POST'])
+def save_content():
+    data = request.get_json()
+    if data:
+        print("Received data:", data)
+        return jsonify({"message": "Content received successfully"}), 200
+    else:
+        return jsonify({"error": "No content provided"}), 400
 
 # Your route for generating docx
 @page.route('/generate-docx', methods=['GET'])
