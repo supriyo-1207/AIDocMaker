@@ -9,7 +9,7 @@ function Header_docs({ title, showExportButton,value }) {
       const handelExport = async () => {
             try {
               // Send GET request to Flask to fetch the docx file
-              const response = await fetch('http://localhost:5000/generate-docx', {
+              const response = await fetch('http://localhost:5000//generate-docx', {
                 method: 'GET',
               });
         

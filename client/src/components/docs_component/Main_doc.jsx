@@ -10,7 +10,7 @@ import LoadingBar from "react-top-loading-bar";
 import {  toast } from 'react-toastify';
 
 function Main_doc() {
-    const [model, setModel] = useState('gpt-4-mini');
+    const [model, setModel] = useState('gemini-pro');
     const [background, setBackground] = useState('');
     const [instructions, setInstructions] = useState('');
     const navigate = useNavigate();
@@ -45,6 +45,9 @@ function Main_doc() {
             if (response.status === 200) {
               
                 navigate('/view/');
+            }
+            else{
+                toast.error('Something went wrong');
             }
         } catch (error) {
             console.error(error);
