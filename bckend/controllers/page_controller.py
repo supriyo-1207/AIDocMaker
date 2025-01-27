@@ -92,6 +92,7 @@ def getdata():
 @page.route('/saveContent', methods=['POST'])
 def save_content():
     data = request.get_json()
+    print("data",data)
     
     if data and "content" in data:
         result_manager.set_edited_content(data["content"])
