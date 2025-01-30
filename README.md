@@ -1,69 +1,91 @@
 # AIDocMaker
 
-AIDocMaker is a document generation tool powered by modern Large Language Models (LLMs) like Gemini and Llama. It provides an intuitive interface for users to create, edit, and download high-quality documents.
+AIDocMaker is a document generation tool powered by modern Large Language Models (LLMs) like Gemini and Llama. It provides an easy-to-use interface for creating, editing, and downloading high-quality documents. Users can generate content with AI, edit it with a rich text editor, and save their work as `.docx` files.
 
-## Features
+## Key Features
 
-- **Choose LLM Models**: Select from models like Gemini and Llama for custom document generation.
-- **Rich Text Editing**: Edit AI-generated content using React Quill.
-- **Save & Download**: Save your edits to the backend and download documents as `.docx` files.
-- **Optional Background Info**: Provide additional context to improve the quality of generated documents.
+- **Model Selection**: Choose between Gemini, Llama, and other models for customized document generation.
+- **Rich Text Editing**: Edit your AI-generated content using an intuitive React Quill editor.
+- **Save & Download**: Save your document to the backend and download it as a `.docx` file.
+- **Custom Context**: Provide additional background information to improve document quality.
 
 ## Tech Stack
 
-### Frontend
-- **React**: A JavaScript library for building user interfaces.
-- **Bootstrap**: A CSS framework for responsive and modern UI design.
-- **React Quill**: A rich text editor for editing AI-generated content.
-- **Toastify**: A library for displaying notifications.
-- **React Router DOM**: For handling routing in the React application.
+- **Frontend**: React, Bootstrap, React Quill, React Router DOM
+- **Backend**: Flask, LangChain, Python-Docx, Flask-CORS
+- **UI Libraries**: Toastify for notifications, React Quill for text editing
+- **Models**: Gemini, Llama (Customizable with LangChain)
 
-### Backend
-- **Flask**: A lightweight Python web framework.
-- **Flask-CORS**: For handling Cross-Origin Resource Sharing (CORS) in Flask.
-- **LangChain**: A framework for developing applications powered by language models.
-- **Python-Docx**: A library for creating and updating Microsoft Word `.docx` files.
+## Setup Guide
 
-## Setup
+### Prerequisites
 
-### Frontend
+Before you begin, ensure that you have the following installed on your system:
+
+- **Node.js** (Frontend)
+- **npm** (Frontend package manager)
+- **Python 3.x** (Backend)
+- **pip** (Python package manager)
+
+### Frontend Setup
 
 1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/AIDocMaker.git
-   cd AIDocMaker/frontend
-Install dependencies:
+    ```bash
+    git clone https://github.com/your-username/AIDocMaker.git
+    cd AIDocMaker/frontend
+    ```
 
-bash
-Copy
-npm install
-Run the development server:
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-bash
-Copy
-npm start
-Open your browser and navigate to http://localhost:3000.
+3. **Start the frontend server**:
+    ```bash
+    npm start
+    ```
+    Visit `http://localhost:3000` in your browser to access the frontend.
 
-Backend
-Navigate to the backend directory:
+### Backend Setup
 
-bash
-Copy
-cd ../backend
-Create a virtual environment (optional but recommended):
+1. **Navigate to the backend directory**:
+    ```bash
+    cd ../backend
+    ```
 
-bash
-Copy
-python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-Install dependencies:
+2. **Create and activate a virtual environment** (optional but recommended):
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
 
-bash
-Copy
-pip install -r requirements.txt
-Run the Flask server:
+3. **Install the required Python packages**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-bash
-Copy
-flask run
-The backend will be running at http://localhost:5000.
+4. **Run the Flask server**:
+    ```bash
+    flask run
+    ```
+    The backend will now be running at `http://localhost:5000`.
+
+### Configuration
+
+- Set up environment variables in a `.env` file in the backend directory:
+    ```
+    FILE_PATH=path_to_your_excel_file.xlsx
+    DB_NAME=your_database_name
+    DB_PASSWORD=your_database_password
+    ```
+
+## Usage
+
+Once the server is running:
+
+1. **Generate Document**: Choose your desired AI model (e.g., Gemini, Llama) and provide any background information. Click on the generate button to get your document content.
+2. **Edit Content**: Use the React Quill editor to modify the AI-generated content.
+3. **Save and Download**: Once satisfied with the document, save it to the backend and download the final `.docx` file.
+
+## Folder Structure
+
