@@ -31,7 +31,7 @@ Before you begin, ensure that you have the following installed on your system:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/AIDocMaker.git
+    git clone https://github.com/supriyo-1207/AIDocMaker.git
     cd AIDocMaker/frontend
     ```
 
@@ -74,9 +74,7 @@ Before you begin, ensure that you have the following installed on your system:
 
 - Set up environment variables in a `.env` file in the backend directory:
     ```
-    FILE_PATH=path_to_your_excel_file.xlsx
-    DB_NAME=your_database_name
-    DB_PASSWORD=your_database_password
+   
     ```
 
 ## Usage
